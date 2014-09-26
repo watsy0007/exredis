@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exredis.Sub</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">exredis v0.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Exredis.html">Exredis</a> &rarr; <a href="Exredis.Sub.html">Sub</a></div>
+
+      <h1>
+        Exredis.Sub
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Subscribe functions for exredis</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/sub.ex#L1" class="view_source">Source</a>
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#psubscribe/3">psubscribe(client, channel, term)</a></td>
+  
+    <td class="summary_synopsis"><p>Subscribe to a channel by pattern</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start/6">start(host \\ '127.0.0.1', port \\ 6379, password \\ [], reconnect \\ :no_reconnect, max_queue \\ :infinity, behaviour \\ :drop)</a></td>
+  
+    <td class="summary_synopsis"><p>Connect to the Redis server for subscribe to a channel</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/6">start_link(host \\ '127.0.0.1', port \\ 6379, password \\ [], reconnect \\ :no_reconnect, max_queue \\ :infinity, behaviour \\ :drop)</a></td>
+  
+    <td class="summary_synopsis"><p>Connect to the Redis server for subscribe to a channel</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop/1">stop(client)</a></td>
+  
+    <td class="summary_synopsis"><p>Disconnect from the Redis server:</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/3">subscribe(client, channel, term)</a></td>
+  
+    <td class="summary_synopsis"><p>Subscribe to a channel</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:reconnect/0">
+    <a href="#t:reconnect/0">reconnect</a> :: :no_reconnect | integer
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:max_queue/0">
+    <a href="#t:max_queue/0">max_queue</a> :: :infinity | integer
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:behaviour/0">
+    <a href="#t:behaviour/0">behaviour</a> :: :drop | :exit
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:start_link/0">
+    <a href="#t:start_link/0">start_link</a> :: {:ok, pid} | {:error, term}
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="psubscribe/3">
+    <span class="signature"><strong>psubscribe(client, channel, term)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#psubscribe/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>psubscribe(pid, binary, term) :: any</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Subscribe to a channel by pattern</p>
+<ul>
+<li><code class="inline">psubscribe(client, &quot;some_channel_*&quot;, fn(msg) -&gt; ... end)</code>
+</li>
+</ul>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/sub.ex#L75" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start/6">
+    <span class="signature"><strong>start(host \\ '127.0.0.1', port \\ 6379, password \\ [], reconnect \\ :no_reconnect, max_queue \\ :infinity, behaviour \\ :drop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start(list, integer, list, <a href="#t:reconnect/0">reconnect</a>, <a href="#t:max_queue/0">max_queue</a>, <a href="#t:behaviour/0">behaviour</a>) :: pid</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Connect to the Redis server for subscribe to a channel</p>
+<ul>
+<li><code class="inline">start</code>
+</li>
+<li><code class="inline">start('127.0.0.1', 6379)</code>
+</li>
+<li><code class="inline">start('127.0.0.1', 6379, 'with_password')</code>
+</li>
+</ul>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/sub.ex#L38" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start_link/6">
+    <span class="signature"><strong>start_link(host \\ '127.0.0.1', port \\ 6379, password \\ [], reconnect \\ :no_reconnect, max_queue \\ :infinity, behaviour \\ :drop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/6" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(list, integer, list, <a href="#t:reconnect/0">reconnect</a>, <a href="#t:max_queue/0">max_queue</a>, <a href="#t:behaviour/0">behaviour</a>) :: <a href="#t:start_link/0">start_link</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Connect to the Redis server for subscribe to a channel</p>
+<ul>
+<li><code class="inline">start_link</code>
+</li>
+<li><code class="inline">start_link('127.0.0.1', 6379)</code>
+</li>
+<li><code class="inline">start_link('127.0.0.1', 6379, 'with_password')</code>
+</li>
+</ul>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/sub.ex#L25" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="stop/1">
+    <span class="signature"><strong>stop(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#stop/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>stop(pid) :: :ok</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Disconnect from the Redis server:</p>
+<ul>
+<li><code class="inline">stop(client)</code>
+</li>
+</ul>
+<p>Client is a pid getting from start command</p>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/sub.ex#L52" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="subscribe/3">
+    <span class="signature"><strong>subscribe(client, channel, term)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>subscribe(pid, binary, term) :: any</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Subscribe to a channel</p>
+<ul>
+<li><code class="inline">subscribe(client, &quot;some_channel&quot;, fn(msg) -&gt; ... end)</code>
+</li>
+</ul>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/sub.ex#L61" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

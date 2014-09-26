@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exredis</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">exredis v0.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Exredis.html">Exredis</a></div>
+
+      <h1>
+        Exredis
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Redis client for Elixir</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L1" class="view_source">Source</a>
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#query/2">query(client, command)</a></td>
+  
+    <td class="summary_synopsis"><p>Make query</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#query_pipe/2">query_pipe(client, command)</a></td>
+  
+    <td class="summary_synopsis"><p>Pipeline query</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start/5">start(host \\ &quot;127.0.0.1&quot;, port \\ 6379, database \\ 0, password \\ &quot;&quot;, reconnect_sleep \\ :no_reconnect)</a></td>
+  
+    <td class="summary_synopsis"><p>Connect to the Redis server:</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/5">start_link(host \\ &quot;127.0.0.1&quot;, port \\ 6379, database \\ 0, password \\ &quot;&quot;, reconnect_sleep \\ :no_reconnect)</a></td>
+  
+    <td class="summary_synopsis"><p>Connect to the Redis server, erlang way:</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_using_connection_string/2">start_using_connection_string(connection_string, reconnect_sleep \\ :no_reconnect)</a></td>
+  
+    <td class="summary_synopsis"><p>Connect to the Redis server using a connection string:</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop/1">stop(client)</a></td>
+  
+    <td class="summary_synopsis"><p>Disconnect from the Redis server:</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:reconnect_sleep/0">
+    <a href="#t:reconnect_sleep/0">reconnect_sleep</a> :: :no_reconnect | integer
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:start_link/0">
+    <a href="#t:start_link/0">start_link</a> :: {:ok, pid} | {:error, term}
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="query/2">
+    <span class="signature"><strong>query(client, command)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#query/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>query(pid, list) :: any</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Make query</p>
+<ul>
+<li><code class="inline">query(client, [&quot;SET&quot;, &quot;foo&quot;, &quot;bar&quot;])</code>
+</li>
+<li><code class="inline">query(client, [&quot;GET&quot;, &quot;foo&quot;])</code>
+</li>
+<li><code class="inline">query(client, [&quot;MSET&quot; | [&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;, &quot;k3&quot;, &quot;v3&quot;]])</code>
+</li>
+<li><code class="inline">query(client, [&quot;MGET&quot; | [&quot;k1&quot;, &quot;k2&quot;, &quot;k3&quot;]])</code>
+</li>
+</ul>
+<p>See more commands in official Redis documentation</p>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L79" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="query_pipe/2">
+    <span class="signature"><strong>query_pipe(client, command)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#query_pipe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>query_pipe(pid, list) :: any</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Pipeline query</p>
+<pre><code class="">query_pipe(client, [[&quot;SET&quot;, :a, &quot;1&quot;],
+                    [&quot;LPUSH&quot;, :b, &quot;3&quot;],
+                    [&quot;LPUSH&quot;, :b, &quot;2&quot;]])</code></pre>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L92" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start/5">
+    <span class="signature"><strong>start(host \\ &quot;127.0.0.1&quot;, port \\ 6379, database \\ 0, password \\ &quot;&quot;, reconnect_sleep \\ :no_reconnect)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start(binary, integer, integer, binary, :no_reconnect | integer) :: pid</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Connect to the Redis server:</p>
+<ul>
+<li><code class="inline">start</code>
+</li>
+<li><code class="inline">start(&quot;127.0.0.1&quot;, 6379)</code>
+</li>
+</ul>
+<p>Returns pid of the connected client</p>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L39" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start_link/5">
+    <span class="signature"><strong>start_link(host \\ &quot;127.0.0.1&quot;, port \\ 6379, database \\ 0, password \\ &quot;&quot;, reconnect_sleep \\ :no_reconnect)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link(binary, integer, integer, binary, <a href="#t:reconnect_sleep/0">reconnect_sleep</a>) :: <a href="#t:start_link/0">start_link</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Connect to the Redis server, erlang way:</p>
+<ul>
+<li><code class="inline">start_link</code>
+</li>
+<li><code class="inline">start_link(&quot;127.0.0.1&quot;, 6379)</code>
+</li>
+</ul>
+<p>Returns tuple { :ok, pid }</p>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L53" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start_using_connection_string/2">
+    <span class="signature"><strong>start_using_connection_string(connection_string, reconnect_sleep \\ :no_reconnect)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_using_connection_string/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_using_connection_string(binary, :no_reconnect | integer) :: pid</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Connect to the Redis server using a connection string:</p>
+<ul>
+<li><code class="inline">start_using_connection_string(&quot;redis://user:password@127.0.0.1:6379/0&quot;)</code>
+</li>
+<li><code class="inline">start_using_connection_string(&quot;redis://127.0.0.1:6379&quot;)</code>
+</li>
+</ul>
+<p>Returns pid of the connected client</p>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L25" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="stop/1">
+    <span class="signature"><strong>stop(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#stop/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>stop(pid) :: :ok</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Disconnect from the Redis server:</p>
+<p><code class="inline">stop client</code></p>
+<p>Client is a pid getting from start command</p>
+</div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis.ex#L65" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

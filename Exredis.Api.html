@@ -1,0 +1,5204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exredis.Api</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">exredis v0.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Exredis.html">Exredis</a> &rarr; <a href="Exredis.Api.html">Api</a></div>
+
+      <h1>
+        Exredis.Api
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>High-level API</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L30" class="view_source">Source</a>
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#append/2">append(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#append/3">append(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#auth/1">auth(password)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#auth/2">auth(client, password)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bgrewriteaof/0">bgrewriteaof()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bgrewriteaof/1">bgrewriteaof(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bgsave/0">bgsave()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bgsave/1">bgsave(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bitcount/1">bitcount(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bitcount/2">bitcount(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bitcount/3">bitcount(key, start, end)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bitcount/4">bitcount(client, key, start, end)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bitop/3">bitop(operation, destkey, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bitop/4">bitop(client, operation, destkey, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#blpop/2">blpop(key, timeout)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#blpop/3">blpop(client, key, timeout)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#brpop/2">brpop(key, timeout)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#brpop/3">brpop(client, key, timeout)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#brpoplpush/3">brpoplpush(source, destination, timeout)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#brpoplpush/4">brpoplpush(client, source, destination, timeout)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#dbsize/0">dbsize()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#dbsize/1">dbsize(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#decr/1">decr(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#decr/2">decr(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#decrby/2">decrby(key, decrement)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#decrby/3">decrby(client, key, decrement)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#del/1">del(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#del/2">del(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#discard/0">discard()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#discard/1">discard(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#dump/1">dump(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#dump/2">dump(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#echo/1">echo(message)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#echo/2">echo(client, message)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#eval/4">eval(script, numkeys, keys, args)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#eval/5">eval(client, script, numkeys, keys, args)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#evalsha/4">evalsha(scriptsha, numkeys, keys, args)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#evalsha/5">evalsha(client, scriptsha, numkeys, keys, args)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#exec/0">exec()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#exec/1">exec(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#exists/1">exists(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#exists/2">exists(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#expire/2">expire(key, seconds)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#expire/3">expire(client, key, seconds)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#expireat/2">expireat(key, timestamp)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#expireat/3">expireat(client, key, timestamp)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#flushall/0">flushall()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#flushall/1">flushall(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#flushdb/0">flushdb()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#flushdb/1">flushdb(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/1">get(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/2">get(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#getbit/2">getbit(key, offset)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#getbit/3">getbit(client, key, offset)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#getrange/3">getrange(key, start, end)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#getrange/4">getrange(client, key, start, end)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#getset/2">getset(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#getset/3">getset(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hdel/2">hdel(key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hdel/3">hdel(client, key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hexists/2">hexists(key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hexists/3">hexists(client, key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hget/2">hget(key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hget/3">hget(client, key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hgetall/1">hgetall(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hgetall/2">hgetall(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hincrby/3">hincrby(key, field, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hincrby/4">hincrby(client, key, field, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hincrbyfloat/3">hincrbyfloat(key, field, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hincrbyfloat/4">hincrbyfloat(client, key, field, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hkeys/1">hkeys(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hkeys/2">hkeys(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hlen/1">hlen(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hlen/2">hlen(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hmget/2">hmget(key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hmget/3">hmget(client, key, field)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hmset/2">hmset(key, vals)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hmset/3">hmset(client, key, vals)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hset/3">hset(key, field, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hset/4">hset(client, key, field, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hsetnx/3">hsetnx(key, field, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hsetnx/4">hsetnx(client, key, field, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hvals/1">hvals(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hvals/2">hvals(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#incr/1">incr(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#incr/2">incr(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#incrby/2">incrby(key, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#incrby/3">incrby(client, key, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#incrbyfloat/2">incrbyfloat(key, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#incrbyfloat/3">incrbyfloat(client, key, increment)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#info/1">info(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#info/2">info(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#keys/1">keys(pattern)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#keys/2">keys(client, pattern)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lastsave/0">lastsave()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lastsave/1">lastsave(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lindex/2">lindex(key, index)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lindex/3">lindex(client, key, index)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#linsert/4">linsert(key, before_after, pivot, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#linsert/5">linsert(client, key, before_after, pivot, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#llen/1">llen(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#llen/2">llen(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lpop/1">lpop(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lpop/2">lpop(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lpush/2">lpush(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lpush/3">lpush(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lpushx/2">lpushx(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lpushx/3">lpushx(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lrange/3">lrange(key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lrange/4">lrange(client, key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lrem/3">lrem(key, count, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lrem/4">lrem(client, key, count, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lset/3">lset(key, index, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lset/4">lset(client, key, index, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ltrim/3">ltrim(key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ltrim/4">ltrim(client, key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#mget/1">mget(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#mget/2">mget(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor/0">monitor()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#monitor/1">monitor(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#move/2">move(key, db)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#move/3">move(client, key, db)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#mset/1">mset(vals)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#mset/2">mset(client, vals)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#msetnx/2">msetnx(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#msetnx/3">msetnx(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#multi/0">multi()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#multi/1">multi(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#persist/1">persist(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#persist/2">persist(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pexpire/2">pexpire(key, milliseconds)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pexpire/3">pexpire(client, key, milliseconds)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pexpireat/2">pexpireat(key, milli_timestamp)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pexpireat/3">pexpireat(client, key, milli_timestamp)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ping/0">ping()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ping/1">ping(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#psetex/3">psetex(key, milliseconds, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#psetex/4">psetex(client, key, milliseconds, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#psubscribe/1">psubscribe(pattern)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#psubscribe/2">psubscribe(client, pattern)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pttl/1">pttl(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pttl/2">pttl(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish/2">publish(channel, message)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#publish/3">publish(client, channel, message)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#punsubscribe/1">punsubscribe(pattern)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#punsubscribe/2">punsubscribe(client, pattern)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#quit/0">quit()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#quit/1">quit(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#randomkey/0">randomkey()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#randomkey/1">randomkey(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rename/2">rename(key, newkey)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rename/3">rename(client, key, newkey)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#renamenx/2">renamenx(key, newkey)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#renamenx/3">renamenx(client, key, newkey)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#restore/3">restore(key, ttl, serialized_value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#restore/4">restore(client, key, ttl, serialized_value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpop/1">rpop(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpop/2">rpop(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpoplpush/2">rpoplpush(source, destination)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpoplpush/3">rpoplpush(client, source, destination)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpush/2">rpush(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpush/3">rpush(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpushx/2">rpushx(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rpushx/3">rpushx(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sadd/2">sadd(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sadd/3">sadd(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#save/0">save()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#save/1">save(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#scard/1">scard(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#scard/2">scard(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_exists/1">script_exists(shasum)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_exists/2">script_exists(client, shasum)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_flush/0">script_flush()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_flush/1">script_flush(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_kill/0">script_kill()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_kill/1">script_kill(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_load/1">script_load(script)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#script_load/2">script_load(client, script)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sdiff/1">sdiff(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sdiff/2">sdiff(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sdiffstore/2">sdiffstore(destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sdiffstore/3">sdiffstore(client, destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#select/1">select(index)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#select/2">select(client, index)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set/2">set(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set/3">set(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setbit/3">setbit(key, offset, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setbit/4">setbit(client, key, offset, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setex/3">setex(key, seconds, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setex/4">setex(client, key, seconds, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setnx/2">setnx(key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setnx/3">setnx(client, key, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setrange/3">setrange(key, offset, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#setrange/4">setrange(client, key, offset, value)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sinter/1">sinter(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sinter/2">sinter(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sinterstore/2">sinterstore(destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sinterstore/3">sinterstore(client, destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sismember/2">sismember(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sismember/3">sismember(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#slaveof/2">slaveof(host, port)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#slaveof/3">slaveof(client, host, port)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#slowlog/1">slowlog(subcommand)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#slowlog/2">slowlog(client, subcommand)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#smembers/1">smembers(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#smembers/2">smembers(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#smove/3">smove(source, destination, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#smove/4">smove(client, source, destination, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sort/1">sort(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sort/2">sort(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spop/1">spop(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spop/2">spop(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#srandmember/1">srandmember(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#srandmember/2">srandmember(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#srem/2">srem(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#srem/3">srem(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#strlen/1">strlen(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#strlen/2">strlen(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/1">subscribe(channel)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subscribe/2">subscribe(client, channel)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sunion/1">sunion(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sunion/2">sunion(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sunionstore/2">sunionstore(destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sunionstore/3">sunionstore(client, destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sync/0">sync()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sync/1">sync(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#time/0">time()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#time/1">time(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ttl/1">ttl(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ttl/2">ttl(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#type/1">type(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#type/2">type(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unsubscribe/1">unsubscribe(channel)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unsubscribe/2">unsubscribe(client, channel)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unwatch/0">unwatch()</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unwatch/1">unwatch(client)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#watch/1">watch(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#watch/2">watch(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zadd/3">zadd(key, score, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zadd/4">zadd(client, key, score, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zcard/1">zcard(key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zcard/2">zcard(client, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zcount/3">zcount(key, min, max)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zcount/4">zcount(client, key, min, max)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zincrby/3">zincrby(key, increment, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zincrby/4">zincrby(client, key, increment, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zinterstore/3">zinterstore(destination, numkeys, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zinterstore/4">zinterstore(client, destination, numkeys, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrange/3">zrange(key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrange/4">zrange(client, key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrangebyscore/3">zrangebyscore(key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrangebyscore/4">zrangebyscore(client, key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrank/2">zrank(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrank/3">zrank(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrem/2">zrem(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrem/3">zrem(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zremrangebyrank/3">zremrangebyrank(key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zremrangebyrank/4">zremrangebyrank(client, key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zremrangebyscore/3">zremrangebyscore(key, min, max)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zremrangebyscore/4">zremrangebyscore(client, key, min, max)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrevrange/3">zrevrange(key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrevrange/4">zrevrange(client, key, start, stop)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrevrangebyscore/3">zrevrangebyscore(key, min, max)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrevrangebyscore/4">zrevrangebyscore(client, key, min, max)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrevrank/2">zrevrank(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zrevrank/3">zrevrank(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zscore/2">zscore(key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zscore/3">zscore(client, key, member)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zunionstore/2">zunionstore(destination, key)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zunionstore/3">zunionstore(client, destination, key)</a></td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="append/2">
+    <span class="signature"><strong>append(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#append/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L52" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="append/3">
+    <span class="signature"><strong>append(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#append/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L52" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="auth/1">
+    <span class="signature"><strong>auth(password)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#auth/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L53" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="auth/2">
+    <span class="signature"><strong>auth(client, password)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#auth/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L53" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bgrewriteaof/0">
+    <span class="signature"><strong>bgrewriteaof()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bgrewriteaof/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L54" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bgrewriteaof/1">
+    <span class="signature"><strong>bgrewriteaof(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bgrewriteaof/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L54" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bgsave/0">
+    <span class="signature"><strong>bgsave()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bgsave/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L55" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bgsave/1">
+    <span class="signature"><strong>bgsave(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bgsave/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L55" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bitcount/1">
+    <span class="signature"><strong>bitcount(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bitcount/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L57" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bitcount/2">
+    <span class="signature"><strong>bitcount(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bitcount/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L57" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bitcount/3">
+    <span class="signature"><strong>bitcount(key, start, end)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bitcount/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L56" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bitcount/4">
+    <span class="signature"><strong>bitcount(client, key, start, end)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bitcount/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L56" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bitop/3">
+    <span class="signature"><strong>bitop(operation, destkey, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bitop/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L58" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="bitop/4">
+    <span class="signature"><strong>bitop(client, operation, destkey, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#bitop/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L58" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="blpop/2">
+    <span class="signature"><strong>blpop(key, timeout)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#blpop/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L59" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="blpop/3">
+    <span class="signature"><strong>blpop(client, key, timeout)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#blpop/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L59" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="brpop/2">
+    <span class="signature"><strong>brpop(key, timeout)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#brpop/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L60" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="brpop/3">
+    <span class="signature"><strong>brpop(client, key, timeout)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#brpop/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L60" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="brpoplpush/3">
+    <span class="signature"><strong>brpoplpush(source, destination, timeout)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#brpoplpush/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L61" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="brpoplpush/4">
+    <span class="signature"><strong>brpoplpush(client, source, destination, timeout)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#brpoplpush/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L61" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="dbsize/0">
+    <span class="signature"><strong>dbsize()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#dbsize/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L62" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="dbsize/1">
+    <span class="signature"><strong>dbsize(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#dbsize/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L62" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="decr/1">
+    <span class="signature"><strong>decr(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decr/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L63" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="decr/2">
+    <span class="signature"><strong>decr(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decr/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L63" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="decrby/2">
+    <span class="signature"><strong>decrby(key, decrement)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decrby/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L64" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="decrby/3">
+    <span class="signature"><strong>decrby(client, key, decrement)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decrby/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L64" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="del/1">
+    <span class="signature"><strong>del(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#del/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L65" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="del/2">
+    <span class="signature"><strong>del(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#del/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L65" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="discard/0">
+    <span class="signature"><strong>discard()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#discard/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L66" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="discard/1">
+    <span class="signature"><strong>discard(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#discard/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L66" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="dump/1">
+    <span class="signature"><strong>dump(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#dump/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L67" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="dump/2">
+    <span class="signature"><strong>dump(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#dump/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L67" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="echo/1">
+    <span class="signature"><strong>echo(message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#echo/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L68" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="echo/2">
+    <span class="signature"><strong>echo(client, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#echo/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L68" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="eval/4">
+    <span class="signature"><strong>eval(script, numkeys, keys, args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#eval/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L69" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="eval/5">
+    <span class="signature"><strong>eval(client, script, numkeys, keys, args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#eval/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L69" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="evalsha/4">
+    <span class="signature"><strong>evalsha(scriptsha, numkeys, keys, args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#evalsha/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L70" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="evalsha/5">
+    <span class="signature"><strong>evalsha(client, scriptsha, numkeys, keys, args)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#evalsha/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L70" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="exec/0">
+    <span class="signature"><strong>exec()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#exec/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L71" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="exec/1">
+    <span class="signature"><strong>exec(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#exec/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L71" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="exists/1">
+    <span class="signature"><strong>exists(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#exists/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L72" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="exists/2">
+    <span class="signature"><strong>exists(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#exists/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L72" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="expire/2">
+    <span class="signature"><strong>expire(key, seconds)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#expire/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L73" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="expire/3">
+    <span class="signature"><strong>expire(client, key, seconds)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#expire/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L73" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="expireat/2">
+    <span class="signature"><strong>expireat(key, timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#expireat/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L74" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="expireat/3">
+    <span class="signature"><strong>expireat(client, key, timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#expireat/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L74" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="flushall/0">
+    <span class="signature"><strong>flushall()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#flushall/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L75" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="flushall/1">
+    <span class="signature"><strong>flushall(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#flushall/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L75" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="flushdb/0">
+    <span class="signature"><strong>flushdb()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#flushdb/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L76" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="flushdb/1">
+    <span class="signature"><strong>flushdb(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#flushdb/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L76" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get/1">
+    <span class="signature"><strong>get(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L77" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get/2">
+    <span class="signature"><strong>get(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L77" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="getbit/2">
+    <span class="signature"><strong>getbit(key, offset)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#getbit/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L78" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="getbit/3">
+    <span class="signature"><strong>getbit(client, key, offset)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#getbit/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L78" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="getrange/3">
+    <span class="signature"><strong>getrange(key, start, end)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#getrange/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L79" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="getrange/4">
+    <span class="signature"><strong>getrange(client, key, start, end)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#getrange/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L79" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="getset/2">
+    <span class="signature"><strong>getset(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#getset/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L80" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="getset/3">
+    <span class="signature"><strong>getset(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#getset/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L80" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hdel/2">
+    <span class="signature"><strong>hdel(key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hdel/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L81" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hdel/3">
+    <span class="signature"><strong>hdel(client, key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hdel/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L81" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hexists/2">
+    <span class="signature"><strong>hexists(key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hexists/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L82" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hexists/3">
+    <span class="signature"><strong>hexists(client, key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hexists/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L82" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hget/2">
+    <span class="signature"><strong>hget(key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hget/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L83" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hget/3">
+    <span class="signature"><strong>hget(client, key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hget/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L83" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hgetall/1">
+    <span class="signature"><strong>hgetall(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hgetall/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L84" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hgetall/2">
+    <span class="signature"><strong>hgetall(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hgetall/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L84" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hincrby/3">
+    <span class="signature"><strong>hincrby(key, field, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hincrby/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L89" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hincrby/4">
+    <span class="signature"><strong>hincrby(client, key, field, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hincrby/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L89" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hincrbyfloat/3">
+    <span class="signature"><strong>hincrbyfloat(key, field, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hincrbyfloat/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L90" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hincrbyfloat/4">
+    <span class="signature"><strong>hincrbyfloat(client, key, field, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hincrbyfloat/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L90" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hkeys/1">
+    <span class="signature"><strong>hkeys(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hkeys/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L91" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hkeys/2">
+    <span class="signature"><strong>hkeys(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hkeys/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L91" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hlen/1">
+    <span class="signature"><strong>hlen(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hlen/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L92" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hlen/2">
+    <span class="signature"><strong>hlen(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hlen/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L92" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hmget/2">
+    <span class="signature"><strong>hmget(key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hmget/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L93" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hmget/3">
+    <span class="signature"><strong>hmget(client, key, field)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hmget/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L93" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hmset/2">
+    <span class="signature"><strong>hmset(key, vals)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hmset/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L94" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hmset/3">
+    <span class="signature"><strong>hmset(client, key, vals)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hmset/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L94" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hset/3">
+    <span class="signature"><strong>hset(key, field, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hset/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L95" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hset/4">
+    <span class="signature"><strong>hset(client, key, field, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hset/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L95" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hsetnx/3">
+    <span class="signature"><strong>hsetnx(key, field, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hsetnx/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L96" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hsetnx/4">
+    <span class="signature"><strong>hsetnx(client, key, field, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hsetnx/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L96" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hvals/1">
+    <span class="signature"><strong>hvals(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hvals/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L97" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="hvals/2">
+    <span class="signature"><strong>hvals(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#hvals/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L97" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="incr/1">
+    <span class="signature"><strong>incr(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#incr/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L98" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="incr/2">
+    <span class="signature"><strong>incr(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#incr/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L98" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="incrby/2">
+    <span class="signature"><strong>incrby(key, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#incrby/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L99" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="incrby/3">
+    <span class="signature"><strong>incrby(client, key, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#incrby/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L99" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="incrbyfloat/2">
+    <span class="signature"><strong>incrbyfloat(key, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#incrbyfloat/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L100" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="incrbyfloat/3">
+    <span class="signature"><strong>incrbyfloat(client, key, increment)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#incrbyfloat/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L100" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="info/1">
+    <span class="signature"><strong>info(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#info/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L101" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="info/2">
+    <span class="signature"><strong>info(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#info/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L101" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="keys/1">
+    <span class="signature"><strong>keys(pattern)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#keys/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L102" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="keys/2">
+    <span class="signature"><strong>keys(client, pattern)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#keys/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L102" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lastsave/0">
+    <span class="signature"><strong>lastsave()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lastsave/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L103" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lastsave/1">
+    <span class="signature"><strong>lastsave(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lastsave/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L103" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lindex/2">
+    <span class="signature"><strong>lindex(key, index)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lindex/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L104" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lindex/3">
+    <span class="signature"><strong>lindex(client, key, index)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lindex/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L104" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="linsert/4">
+    <span class="signature"><strong>linsert(key, before_after, pivot, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#linsert/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L105" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="linsert/5">
+    <span class="signature"><strong>linsert(client, key, before_after, pivot, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#linsert/5" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L105" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="llen/1">
+    <span class="signature"><strong>llen(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#llen/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L106" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="llen/2">
+    <span class="signature"><strong>llen(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#llen/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L106" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lpop/1">
+    <span class="signature"><strong>lpop(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lpop/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L107" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lpop/2">
+    <span class="signature"><strong>lpop(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lpop/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L107" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lpush/2">
+    <span class="signature"><strong>lpush(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lpush/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L108" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lpush/3">
+    <span class="signature"><strong>lpush(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lpush/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L108" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lpushx/2">
+    <span class="signature"><strong>lpushx(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lpushx/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L109" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lpushx/3">
+    <span class="signature"><strong>lpushx(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lpushx/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L109" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lrange/3">
+    <span class="signature"><strong>lrange(key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lrange/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L110" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lrange/4">
+    <span class="signature"><strong>lrange(client, key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lrange/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L110" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lrem/3">
+    <span class="signature"><strong>lrem(key, count, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lrem/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L111" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lrem/4">
+    <span class="signature"><strong>lrem(client, key, count, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lrem/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L111" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lset/3">
+    <span class="signature"><strong>lset(key, index, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lset/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L112" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lset/4">
+    <span class="signature"><strong>lset(client, key, index, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#lset/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L112" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ltrim/3">
+    <span class="signature"><strong>ltrim(key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ltrim/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L113" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ltrim/4">
+    <span class="signature"><strong>ltrim(client, key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ltrim/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L113" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="mget/1">
+    <span class="signature"><strong>mget(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#mget/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L114" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="mget/2">
+    <span class="signature"><strong>mget(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#mget/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L114" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="monitor/0">
+    <span class="signature"><strong>monitor()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L116" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="monitor/1">
+    <span class="signature"><strong>monitor(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#monitor/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L116" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="move/2">
+    <span class="signature"><strong>move(key, db)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#move/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L117" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="move/3">
+    <span class="signature"><strong>move(client, key, db)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#move/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L117" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="mset/1">
+    <span class="signature"><strong>mset(vals)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#mset/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L118" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="mset/2">
+    <span class="signature"><strong>mset(client, vals)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#mset/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L118" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="msetnx/2">
+    <span class="signature"><strong>msetnx(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#msetnx/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L119" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="msetnx/3">
+    <span class="signature"><strong>msetnx(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#msetnx/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L119" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="multi/0">
+    <span class="signature"><strong>multi()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#multi/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L120" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="multi/1">
+    <span class="signature"><strong>multi(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#multi/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L120" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="persist/1">
+    <span class="signature"><strong>persist(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#persist/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L122" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="persist/2">
+    <span class="signature"><strong>persist(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#persist/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L122" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pexpire/2">
+    <span class="signature"><strong>pexpire(key, milliseconds)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pexpire/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L123" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pexpire/3">
+    <span class="signature"><strong>pexpire(client, key, milliseconds)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pexpire/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L123" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pexpireat/2">
+    <span class="signature"><strong>pexpireat(key, milli_timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pexpireat/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L124" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pexpireat/3">
+    <span class="signature"><strong>pexpireat(client, key, milli_timestamp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pexpireat/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L124" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ping/0">
+    <span class="signature"><strong>ping()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ping/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L125" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ping/1">
+    <span class="signature"><strong>ping(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ping/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L125" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="psetex/3">
+    <span class="signature"><strong>psetex(key, milliseconds, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#psetex/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L126" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="psetex/4">
+    <span class="signature"><strong>psetex(client, key, milliseconds, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#psetex/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L126" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="psubscribe/1">
+    <span class="signature"><strong>psubscribe(pattern)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#psubscribe/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L127" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="psubscribe/2">
+    <span class="signature"><strong>psubscribe(client, pattern)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#psubscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L127" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pttl/1">
+    <span class="signature"><strong>pttl(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pttl/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L129" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pttl/2">
+    <span class="signature"><strong>pttl(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pttl/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L129" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="publish/2">
+    <span class="signature"><strong>publish(channel, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L130" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="publish/3">
+    <span class="signature"><strong>publish(client, channel, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#publish/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L130" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="punsubscribe/1">
+    <span class="signature"><strong>punsubscribe(pattern)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#punsubscribe/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L131" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="punsubscribe/2">
+    <span class="signature"><strong>punsubscribe(client, pattern)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#punsubscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L131" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="quit/0">
+    <span class="signature"><strong>quit()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#quit/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L132" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="quit/1">
+    <span class="signature"><strong>quit(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#quit/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L132" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="randomkey/0">
+    <span class="signature"><strong>randomkey()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#randomkey/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L133" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="randomkey/1">
+    <span class="signature"><strong>randomkey(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#randomkey/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L133" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rename/2">
+    <span class="signature"><strong>rename(key, newkey)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rename/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L134" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rename/3">
+    <span class="signature"><strong>rename(client, key, newkey)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rename/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L134" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="renamenx/2">
+    <span class="signature"><strong>renamenx(key, newkey)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#renamenx/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L135" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="renamenx/3">
+    <span class="signature"><strong>renamenx(client, key, newkey)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#renamenx/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L135" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="restore/3">
+    <span class="signature"><strong>restore(key, ttl, serialized_value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#restore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L136" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="restore/4">
+    <span class="signature"><strong>restore(client, key, ttl, serialized_value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#restore/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L136" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpop/1">
+    <span class="signature"><strong>rpop(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpop/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L137" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpop/2">
+    <span class="signature"><strong>rpop(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpop/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L137" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpoplpush/2">
+    <span class="signature"><strong>rpoplpush(source, destination)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpoplpush/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L138" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpoplpush/3">
+    <span class="signature"><strong>rpoplpush(client, source, destination)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpoplpush/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L138" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpush/2">
+    <span class="signature"><strong>rpush(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpush/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L139" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpush/3">
+    <span class="signature"><strong>rpush(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpush/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L139" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpushx/2">
+    <span class="signature"><strong>rpushx(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpushx/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L140" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rpushx/3">
+    <span class="signature"><strong>rpushx(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rpushx/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L140" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sadd/2">
+    <span class="signature"><strong>sadd(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sadd/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L141" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sadd/3">
+    <span class="signature"><strong>sadd(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sadd/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L141" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="save/0">
+    <span class="signature"><strong>save()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#save/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L142" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="save/1">
+    <span class="signature"><strong>save(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#save/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L142" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="scard/1">
+    <span class="signature"><strong>scard(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#scard/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L143" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="scard/2">
+    <span class="signature"><strong>scard(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#scard/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L143" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_exists/1">
+    <span class="signature"><strong>script_exists(shasum)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_exists/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L144" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_exists/2">
+    <span class="signature"><strong>script_exists(client, shasum)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_exists/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L144" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_flush/0">
+    <span class="signature"><strong>script_flush()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_flush/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L145" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_flush/1">
+    <span class="signature"><strong>script_flush(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_flush/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L145" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_kill/0">
+    <span class="signature"><strong>script_kill()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_kill/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L146" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_kill/1">
+    <span class="signature"><strong>script_kill(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_kill/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L146" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_load/1">
+    <span class="signature"><strong>script_load(script)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_load/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L147" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="script_load/2">
+    <span class="signature"><strong>script_load(client, script)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#script_load/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L147" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sdiff/1">
+    <span class="signature"><strong>sdiff(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sdiff/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L148" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sdiff/2">
+    <span class="signature"><strong>sdiff(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sdiff/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L148" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sdiffstore/2">
+    <span class="signature"><strong>sdiffstore(destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sdiffstore/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L149" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sdiffstore/3">
+    <span class="signature"><strong>sdiffstore(client, destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sdiffstore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L149" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="select/1">
+    <span class="signature"><strong>select(index)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#select/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L150" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="select/2">
+    <span class="signature"><strong>select(client, index)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#select/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L150" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="set/2">
+    <span class="signature"><strong>set(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#set/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L151" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="set/3">
+    <span class="signature"><strong>set(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#set/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L151" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setbit/3">
+    <span class="signature"><strong>setbit(key, offset, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setbit/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L152" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setbit/4">
+    <span class="signature"><strong>setbit(client, key, offset, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setbit/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L152" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setex/3">
+    <span class="signature"><strong>setex(key, seconds, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setex/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L153" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setex/4">
+    <span class="signature"><strong>setex(client, key, seconds, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setex/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L153" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setnx/2">
+    <span class="signature"><strong>setnx(key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setnx/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L154" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setnx/3">
+    <span class="signature"><strong>setnx(client, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setnx/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L154" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setrange/3">
+    <span class="signature"><strong>setrange(key, offset, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setrange/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L155" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="setrange/4">
+    <span class="signature"><strong>setrange(client, key, offset, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#setrange/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L155" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sinter/1">
+    <span class="signature"><strong>sinter(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sinter/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L157" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sinter/2">
+    <span class="signature"><strong>sinter(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sinter/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L157" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sinterstore/2">
+    <span class="signature"><strong>sinterstore(destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sinterstore/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L158" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sinterstore/3">
+    <span class="signature"><strong>sinterstore(client, destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sinterstore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L158" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sismember/2">
+    <span class="signature"><strong>sismember(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sismember/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L159" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sismember/3">
+    <span class="signature"><strong>sismember(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sismember/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L159" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="slaveof/2">
+    <span class="signature"><strong>slaveof(host, port)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#slaveof/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L160" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="slaveof/3">
+    <span class="signature"><strong>slaveof(client, host, port)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#slaveof/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L160" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="slowlog/1">
+    <span class="signature"><strong>slowlog(subcommand)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#slowlog/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L161" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="slowlog/2">
+    <span class="signature"><strong>slowlog(client, subcommand)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#slowlog/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L161" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="smembers/1">
+    <span class="signature"><strong>smembers(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#smembers/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L162" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="smembers/2">
+    <span class="signature"><strong>smembers(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#smembers/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L162" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="smove/3">
+    <span class="signature"><strong>smove(source, destination, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#smove/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L163" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="smove/4">
+    <span class="signature"><strong>smove(client, source, destination, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#smove/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L163" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sort/1">
+    <span class="signature"><strong>sort(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sort/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L164" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sort/2">
+    <span class="signature"><strong>sort(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sort/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L164" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="spop/1">
+    <span class="signature"><strong>spop(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#spop/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L165" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="spop/2">
+    <span class="signature"><strong>spop(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#spop/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L165" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="srandmember/1">
+    <span class="signature"><strong>srandmember(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#srandmember/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L166" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="srandmember/2">
+    <span class="signature"><strong>srandmember(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#srandmember/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L166" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="srem/2">
+    <span class="signature"><strong>srem(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#srem/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L167" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="srem/3">
+    <span class="signature"><strong>srem(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#srem/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L167" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="strlen/1">
+    <span class="signature"><strong>strlen(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#strlen/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L168" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="strlen/2">
+    <span class="signature"><strong>strlen(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#strlen/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L168" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="subscribe/1">
+    <span class="signature"><strong>subscribe(channel)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L169" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="subscribe/2">
+    <span class="signature"><strong>subscribe(client, channel)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#subscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L169" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sunion/1">
+    <span class="signature"><strong>sunion(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sunion/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L170" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sunion/2">
+    <span class="signature"><strong>sunion(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sunion/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L170" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sunionstore/2">
+    <span class="signature"><strong>sunionstore(destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sunionstore/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L171" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sunionstore/3">
+    <span class="signature"><strong>sunionstore(client, destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sunionstore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L171" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sync/0">
+    <span class="signature"><strong>sync()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sync/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L172" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sync/1">
+    <span class="signature"><strong>sync(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sync/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L172" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="time/0">
+    <span class="signature"><strong>time()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#time/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L173" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="time/1">
+    <span class="signature"><strong>time(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#time/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L173" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ttl/1">
+    <span class="signature"><strong>ttl(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ttl/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L174" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ttl/2">
+    <span class="signature"><strong>ttl(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ttl/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L174" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="type/1">
+    <span class="signature"><strong>type(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#type/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L175" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="type/2">
+    <span class="signature"><strong>type(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#type/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L175" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="unsubscribe/1">
+    <span class="signature"><strong>unsubscribe(channel)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unsubscribe/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L176" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="unsubscribe/2">
+    <span class="signature"><strong>unsubscribe(client, channel)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unsubscribe/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L176" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="unwatch/0">
+    <span class="signature"><strong>unwatch()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unwatch/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L177" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="unwatch/1">
+    <span class="signature"><strong>unwatch(client)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unwatch/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L177" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="watch/1">
+    <span class="signature"><strong>watch(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#watch/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L178" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="watch/2">
+    <span class="signature"><strong>watch(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#watch/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L178" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zadd/3">
+    <span class="signature"><strong>zadd(key, score, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zadd/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L179" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zadd/4">
+    <span class="signature"><strong>zadd(client, key, score, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zadd/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L179" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zcard/1">
+    <span class="signature"><strong>zcard(key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zcard/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L180" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zcard/2">
+    <span class="signature"><strong>zcard(client, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zcard/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L180" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zcount/3">
+    <span class="signature"><strong>zcount(key, min, max)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zcount/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L181" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zcount/4">
+    <span class="signature"><strong>zcount(client, key, min, max)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zcount/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L181" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zincrby/3">
+    <span class="signature"><strong>zincrby(key, increment, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zincrby/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L182" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zincrby/4">
+    <span class="signature"><strong>zincrby(client, key, increment, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zincrby/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L182" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zinterstore/3">
+    <span class="signature"><strong>zinterstore(destination, numkeys, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zinterstore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L183" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zinterstore/4">
+    <span class="signature"><strong>zinterstore(client, destination, numkeys, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zinterstore/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L183" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrange/3">
+    <span class="signature"><strong>zrange(key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrange/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L184" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrange/4">
+    <span class="signature"><strong>zrange(client, key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrange/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L184" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrangebyscore/3">
+    <span class="signature"><strong>zrangebyscore(key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrangebyscore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L185" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrangebyscore/4">
+    <span class="signature"><strong>zrangebyscore(client, key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrangebyscore/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L185" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrank/2">
+    <span class="signature"><strong>zrank(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrank/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L186" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrank/3">
+    <span class="signature"><strong>zrank(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrank/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L186" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrem/2">
+    <span class="signature"><strong>zrem(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrem/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L187" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrem/3">
+    <span class="signature"><strong>zrem(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrem/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L187" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zremrangebyrank/3">
+    <span class="signature"><strong>zremrangebyrank(key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zremrangebyrank/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L188" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zremrangebyrank/4">
+    <span class="signature"><strong>zremrangebyrank(client, key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zremrangebyrank/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L188" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zremrangebyscore/3">
+    <span class="signature"><strong>zremrangebyscore(key, min, max)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zremrangebyscore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L189" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zremrangebyscore/4">
+    <span class="signature"><strong>zremrangebyscore(client, key, min, max)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zremrangebyscore/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L189" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrevrange/3">
+    <span class="signature"><strong>zrevrange(key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrevrange/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L190" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrevrange/4">
+    <span class="signature"><strong>zrevrange(client, key, start, stop)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrevrange/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L190" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrevrangebyscore/3">
+    <span class="signature"><strong>zrevrangebyscore(key, min, max)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrevrangebyscore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L191" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrevrangebyscore/4">
+    <span class="signature"><strong>zrevrangebyscore(client, key, min, max)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrevrangebyscore/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L191" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrevrank/2">
+    <span class="signature"><strong>zrevrank(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrevrank/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L192" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zrevrank/3">
+    <span class="signature"><strong>zrevrank(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zrevrank/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L192" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zscore/2">
+    <span class="signature"><strong>zscore(key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zscore/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L193" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zscore/3">
+    <span class="signature"><strong>zscore(client, key, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zscore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L193" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zunionstore/2">
+    <span class="signature"><strong>zunionstore(destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zunionstore/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L194" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="zunionstore/3">
+    <span class="signature"><strong>zunionstore(client, destination, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#zunionstore/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/artemeff/exredis/blob/master/lib/exredis/api.ex#L194" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

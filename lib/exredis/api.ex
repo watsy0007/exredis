@@ -180,7 +180,7 @@ defmodule Exredis.Api do
   defredis :zrevrank, [:key, :member]
   defredis :zscore, [:key, :member]
   defredis :zunionstore, [:destination, :key]#, ...]
-  # defredis :scan, [:cursor]
+  defredis :scan, [:cursor]
   # defredis :sscan, [:key, :cursor]
   # defredis :hscan, [:key, :cursor]
   # defredis :zscan, [:key, :cursor]
